@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A1BC349020A204EE00C16013 /* Infusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1BC348620A204EE00C16013 /* Infusion.framework */; };
 		A1BC349520A204EE00C16013 /* InfusionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BC349420A204EE00C16013 /* InfusionTests.swift */; };
-		A1BC349720A204EE00C16013 /* Infusion.h in Headers */ = {isa = PBXBuildFile; fileRef = A1BC348920A204EE00C16013 /* Infusion.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1BC34A120A2071800C16013 /* Infusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BC34A020A2071800C16013 /* Infusion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +24,11 @@
 
 /* Begin PBXFileReference section */
 		A1BC348620A204EE00C16013 /* Infusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Infusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1BC348920A204EE00C16013 /* Infusion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Infusion.h; sourceTree = "<group>"; };
 		A1BC348A20A204EE00C16013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BC348F20A204EE00C16013 /* InfusionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfusionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BC349420A204EE00C16013 /* InfusionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfusionTests.swift; sourceTree = "<group>"; };
 		A1BC349620A204EE00C16013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1BC34A020A2071800C16013 /* Infusion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Infusion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +71,8 @@
 		A1BC348820A204EE00C16013 /* Infusion */ = {
 			isa = PBXGroup;
 			children = (
-				A1BC348920A204EE00C16013 /* Infusion.h */,
 				A1BC348A20A204EE00C16013 /* Info.plist */,
+				A1BC34A020A2071800C16013 /* Infusion.swift */,
 			);
 			path = Infusion;
 			sourceTree = "<group>";
@@ -93,7 +93,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1BC349720A204EE00C16013 /* Infusion.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +147,7 @@
 				TargetAttributes = {
 					A1BC348520A204EE00C16013 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 					A1BC348E20A204EE00C16013 = {
 						CreatedOnToolsVersion = 9.3;
@@ -194,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1BC34A120A2071800C16013 /* Infusion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,10 +340,11 @@
 		A1BC349B20A204EE00C16013 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 24DV2L94B2;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -355,7 +357,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = akiroz.Infusion;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -364,10 +368,11 @@
 		A1BC349C20A204EE00C16013 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 24DV2L94B2;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -380,6 +385,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = akiroz.Infusion;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -389,6 +395,7 @@
 		A1BC349E20A204EE00C16013 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24DV2L94B2;
 				INFOPLIST_FILE = InfusionTests/Info.plist;
@@ -407,6 +414,7 @@
 		A1BC349F20A204EE00C16013 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24DV2L94B2;
 				INFOPLIST_FILE = InfusionTests/Info.plist;
