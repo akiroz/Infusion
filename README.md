@@ -1,8 +1,10 @@
 # Infusion
 
 [![Travis CI](https://travis-ci.org/akiroz/Infusion.svg?branch=master)](https://travis-ci.org/akiroz/Infusion)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
+[![Swift: 4](https://img.shields.io/badge/Swift-4-orange.svg)]()
+[![Platform: iOS](https://img.shields.io/badge/Platform-iOS-lightgray.svg)]()
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 A simple dependency injection micro-framework for Swift 4 with emphasis on minimal boilerplate code.
 
