@@ -5,9 +5,11 @@ public protocol Infusible: class {
 }
 
 public class Flask {
+    public init() {}
+    
     // Map of Class-ObjectIdentifier => Object Instance
     var flask = [ObjectIdentifier: AnyObject]()
-    
+
     func prepare<T:Infusible>() -> T {
         let id = ObjectIdentifier(T.self)
         if let i = flask[id] {
