@@ -8,14 +8,22 @@
 
 A simple dependency injection micro-framework for Swift 4 with emphasis on minimal boilerplate code.
 
-Infusion currently only supports constructor-based exact-type dependency injection.
+Infusion currently only supports exact-type dependency injection on classes with a nullary init.
+Cyclic dependency is also unsupported.
+
+## Infusion 2.0 Changes
+
+- [Breaking] The `Infusible` protocol now expects a nullary init instead of taking a single `Flask` instance
+- [Breaking] The dependencies no longer needs to be declared using `dissove()` before calling `extract()`
+- [Breaking] `extract()` no longer returns optional instances, cyclic dependencies will result in `fatalError`
+- Added a static shared `Flask` instance `Flask.shared`
 
 ## Install
 
 Carthage:
 
 ```
-github "akiroz/Infusion"
+github "akiroz/Infusion" ~> 2.0
 ```
 
 ## Usage
@@ -24,66 +32,19 @@ github "akiroz/Infusion"
 import protocol Infusion.Infusible  // Apply to classes managed by Infusion
 import class Infusion.Flask         // Dependency container
 
-// Example: MyFoo depends on MyBar
+// Example: Foo depends on Bar
 // =====================================================
 
-class MyBar: Infusible {
-    required init(_: Flask) {}
+class Bar: Infusible {
+    required init() {}
 }
 
-class MyFoo: Infusible {
-    let myBar: MyBar?
-    required init(_ f: Flask) {
-        myBar = f.extract()
-    }
+class Foo {
+    let bar: Bar = Flask.shared.extract()
 }
 
-let f = Flask()
-
-// Extracts type information using Swift's Generics
-f.dissove({(_:MyBar) -> MyFoo? in nil})
-
-// Do something with myFoo
-let myFoo: MyFoo = f.extract()!
-
-
-
-// Example: MyView depends on MyLogic
-// =====================================================
-
-class MyLogic: Infusible {
-    required init(_: Flask) {}
-}
-
-class MyView: UIViewController, Infusible {
-    let logic: MyLogic?
-    required convenience init(_ f: Flask) {
-        self.init() // Call inherited designated init (i.e. UIViewController())
-        self.logic = f.extract()
-    }
-}
-
-let f = Flask()
-f.dissove({(_:MyBar) -> MyFoo? in nil})
-let v: MyView = f.extract()!
-window!.rootViewController = v
-window!.makeKeyAndVisible()
+// Do something with foo
+let foo = Foo()
 
 ```
-
-## Gotcha: Dependency Sorting
-
-Infusion does not perform topological sorting of your dependencies due to implementation
-difficulty, therefore dependencies are not guaranteed to exist in the `Flask` passed to
-your constructor.
-
-It is the user's responsibility to call `flask.dissove` in the correct order. For example:
-if you have the dependency structure `A -> B -> C`, you must call `A -> B` before `B -> C`
-otherwise `A` will not be provided to `B`.
-
-## Gotcha: Max number of Dependencies
-
-Infusion currently only supports a max number of dependencies of `12`. This is because
-Infusion's implementation relies on arity overloading on the `dissove` method.
-
 

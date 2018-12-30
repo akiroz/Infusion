@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A12F8A2E21D96FAF00116BFA /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12F8A2D21D96FAF00116BFA /* Nimble.framework */; };
 		A1BC349020A204EE00C16013 /* Infusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1BC348620A204EE00C16013 /* Infusion.framework */; };
 		A1BC349520A204EE00C16013 /* InfusionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BC349420A204EE00C16013 /* InfusionTests.swift */; };
 		A1BC34A120A2071800C16013 /* Infusion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BC34A020A2071800C16013 /* Infusion.swift */; };
@@ -23,6 +24,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A12F8A2D21D96FAF00116BFA /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		A12F8A2F21D970B700116BFA /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		A1BC348620A204EE00C16013 /* Infusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Infusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1BC348A20A204EE00C16013 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1BC348F20A204EE00C16013 /* InfusionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfusionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12F8A2E21D96FAF00116BFA /* Nimble.framework in Frameworks */,
 				A1BC349020A204EE00C16013 /* Infusion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,12 +54,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A12F8A2C21D96FAF00116BFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A12F8A2D21D96FAF00116BFA /* Nimble.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A1BC347C20A204EE00C16013 = {
 			isa = PBXGroup;
 			children = (
+				A12F8A2F21D970B700116BFA /* Nimble.framework */,
 				A1BC348820A204EE00C16013 /* Infusion */,
 				A1BC349320A204EE00C16013 /* InfusionTests */,
 				A1BC348720A204EE00C16013 /* Products */,
+				A12F8A2C21D96FAF00116BFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +138,7 @@
 				A1BC348B20A204EE00C16013 /* Sources */,
 				A1BC348C20A204EE00C16013 /* Frameworks */,
 				A1BC348D20A204EE00C16013 /* Resources */,
+				A12F8A3121D970E200116BFA /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,10 +162,11 @@
 				TargetAttributes = {
 					A1BC348520A204EE00C16013 = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 0930;
+						LastSwiftMigration = 1010;
 					};
 					A1BC348E20A204EE00C16013 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -188,6 +204,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A12F8A3121D970E200116BFA /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A1BC348120A204EE00C16013 /* Sources */ = {
@@ -360,7 +398,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -387,7 +425,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -398,6 +436,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24DV2L94B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = InfusionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -406,7 +448,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = akiroz.InfusionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -417,6 +459,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 24DV2L94B2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = InfusionTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -425,7 +471,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = akiroz.InfusionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

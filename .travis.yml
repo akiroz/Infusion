@@ -7,6 +7,12 @@ env:
     - SDK=iphonesimulator
     - DEST="OS=11.3,name=iPhone 8"
     - CONFIG=Release
+before_install:
+  - brew install carthage || true
+  - brew outdated carthage || brew upgrade carthage
+  - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
+before_script:
+  - carthage bootstrap --platform iOS --cache-builds
 script:
   - set -o pipefail
   - open -b com.apple.iphonesimulator # Workaround https://github.com/travis-ci/travis-ci/issues/3040
