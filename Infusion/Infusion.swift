@@ -5,14 +5,16 @@ public protocol Infusible {
 }
 
 public class Flask {
-    static let shared = Flask()
+    public init() {}
+    public static let shared = Flask()
 
     // Map of Class-ObjectIdentifier => Object Instance
     var flask = [ObjectIdentifier: Infusible]()
+
     // Set of currently extracting classes (detects cyclic dependencies)
     var extracting = Set<ObjectIdentifier>()
 
-    func extract<T:Infusible>() -> T {
+    public func extract<T:Infusible>() -> T {
         let classId = ObjectIdentifier(T.self)
         if let instance = flask[classId] {
             return instance as! T

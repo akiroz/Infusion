@@ -23,7 +23,7 @@ Cyclic dependency is also unsupported.
 Carthage:
 
 ```
-github "akiroz/Infusion" ~> 2.0
+github "akiroz/Infusion" ~> 2.1
 ```
 
 ## Usage
